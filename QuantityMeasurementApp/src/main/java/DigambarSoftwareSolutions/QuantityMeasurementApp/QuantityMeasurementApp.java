@@ -1,6 +1,6 @@
 package DigambarSoftwareSolutions.QuantityMeasurementApp;
 
-public class FeetMeasurementEquality {
+public class QuantityMeasurementApp {
 	
 	// inner class
 	public static class Feet {
