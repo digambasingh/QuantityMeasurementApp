@@ -14,7 +14,9 @@ public class Length {
 	
 	// Convert any length to base unit (inches)
 	private double toBaseUnit() {
-		return value * unit.getConversionFactor();
+//		return value * unit.getConversionFactor();
+		double result = value * unit.getConversionFactor();
+		return Math.round(result * 10000.0) /10000.0;
 	}
 	
 	// compare to lengths
@@ -40,6 +42,5 @@ public class Length {
 	public int hashCode() {
 		return Objects.hash(toBaseUnit());
 	}
-	
-	
+		
 }
