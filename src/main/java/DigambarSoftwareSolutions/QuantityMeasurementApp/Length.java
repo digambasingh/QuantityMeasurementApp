@@ -8,6 +8,7 @@ public class Length {
     private final LengthUnit unit;
 
     public Length(double value, LengthUnit unit) {
+
         if (unit == null || !Double.isFinite(value))
             throw new IllegalArgumentException("Invalid input");
 
@@ -19,85 +20,57 @@ public class Length {
         return value;
     }
 
-    // Convert to base unit (inches)
-    private double toBaseUnit() {
-        return value * unit.getConversionFactor();
+    public LengthUnit getUnit() {
+        return unit;
     }
 
-    // Equality comparison
-    public boolean compare(Length other) {
-        if (other == null) return false;
-        return Double.compare(this.toBaseUnit(), other.toBaseUnit()) == 0;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Length)) return false;
-
-        Length other = (Length) obj;
-        return compare(other);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(toBaseUnit());
-    }
-
-    // UC5 Conversion method
+    // convert to another unit
     public Length convertTo(LengthUnit targetUnit) {
 
         if (targetUnit == null)
             throw new IllegalArgumentException("Target unit null");
 
-        double base = this.toBaseUnit();
-        double converted = base / targetUnit.getConversionFactor();
+        double base = unit.convertToBaseUnit(value);
+
+        double converted = targetUnit.convertFromBaseUnit(base);
 
         return new Length(converted, targetUnit);
     }
-    
- // UC6: Addition of two Length objects
-    public Length add(Length other) {
 
-        if (other == null)
-            throw new IllegalArgumentException("Length cannot be null");
-
-        // convert both values to base unit (inches)
-        double base1 = this.toBaseUnit();
-        double base2 = other.toBaseUnit();
-
-        // add them
-        double sum = base1 + base2;
-
-        // convert result back to the unit of the first operand
-        double resultValue = sum / this.unit.getConversionFactor();
-
-        return new Length(resultValue, this.unit);
-    }
-    
- // UC7: Addition with explicit target unit
+    // UC7 addition with target unit
     public Length add(Length other, LengthUnit targetUnit) {
 
-        if (other == null)
-            throw new IllegalArgumentException("Length cannot be null");
+        if (other == null || targetUnit == null)
+            throw new IllegalArgumentException("Invalid input");
 
-        if (targetUnit == null)
-            throw new IllegalArgumentException("Target unit cannot be null");
+        double base1 = unit.convertToBaseUnit(value);
+        double base2 = other.unit.convertToBaseUnit(other.value);
 
-        if (!Double.isFinite(this.value) || !Double.isFinite(other.value))
-            throw new IllegalArgumentException("Invalid numeric value");
+        double sumBase = base1 + base2;
 
-        // convert both values to base unit (inches)
-        double base1 = this.toBaseUnit();
-        double base2 = other.toBaseUnit();
+        double result = targetUnit.convertFromBaseUnit(sumBase);
 
-        // add them
-        double sum = base1 + base2;
+        return new Length(result, targetUnit);
+    }
 
-        // convert sum to target unit
-        double resultValue = sum / targetUnit.getConversionFactor();
+    @Override
+    public boolean equals(Object obj) {
 
-        return new Length(resultValue, targetUnit);
+        if (this == obj) return true;
+        if (!(obj instanceof Length)) return false;
+
+        Length other = (Length) obj;
+
+        double base1 = unit.convertToBaseUnit(value);
+        double base2 = other.unit.convertToBaseUnit(other.value);
+
+        return Double.compare(base1, base2) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        double base = unit.convertToBaseUnit(value);
+        return Objects.hash(base);
     }
 
     @Override

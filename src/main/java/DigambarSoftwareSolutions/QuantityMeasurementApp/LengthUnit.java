@@ -2,18 +2,27 @@ package DigambarSoftwareSolutions.QuantityMeasurementApp;
 
 public enum LengthUnit {
 
-    FEET(12.0),
-    INCHES(1.0),
-    YARDS(36.0),     
-    CENTIMETERS(0.393701);
+    FEET(1.0),
+    INCHES(1.0 / 12.0),
+    YARDS(3.0),
+    CENTIMETERS(0.0328084);
 
-    private final double conversionFactor;
+    private final double toFeetFactor;
 
-    LengthUnit(double conversionFactor) {
-        this.conversionFactor = conversionFactor;
+    LengthUnit(double toFeetFactor) {
+        this.toFeetFactor = toFeetFactor;
     }
 
     public double getConversionFactor() {
-        return conversionFactor;
+        return toFeetFactor;
+    }
+    // convert value of THIS unit to base unit (feet)
+    public double convertToBaseUnit(double value) {
+        return value * toFeetFactor;
+    }
+
+    // convert value from base unit (feet) to THIS unit
+    public double convertFromBaseUnit(double baseValue) {
+        return baseValue / toFeetFactor;
     }
 }
