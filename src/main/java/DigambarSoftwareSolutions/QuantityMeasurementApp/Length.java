@@ -74,6 +74,31 @@ public class Length {
 
         return new Length(resultValue, this.unit);
     }
+    
+ // UC7: Addition with explicit target unit
+    public Length add(Length other, LengthUnit targetUnit) {
+
+        if (other == null)
+            throw new IllegalArgumentException("Length cannot be null");
+
+        if (targetUnit == null)
+            throw new IllegalArgumentException("Target unit cannot be null");
+
+        if (!Double.isFinite(this.value) || !Double.isFinite(other.value))
+            throw new IllegalArgumentException("Invalid numeric value");
+
+        // convert both values to base unit (inches)
+        double base1 = this.toBaseUnit();
+        double base2 = other.toBaseUnit();
+
+        // add them
+        double sum = base1 + base2;
+
+        // convert sum to target unit
+        double resultValue = sum / targetUnit.getConversionFactor();
+
+        return new Length(resultValue, targetUnit);
+    }
 
     @Override
     public String toString() {

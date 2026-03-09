@@ -57,6 +57,18 @@ public class QuantityMeasurementApp {
 
         return l1.add(l2);
     }
+    
+ // UC7 Addition API with explicit target unit
+    public static Length add(Length l1, Length l2, LengthUnit targetUnit) {
+
+        if (l1 == null || l2 == null)
+            throw new IllegalArgumentException("Length cannot be null");
+
+        if (targetUnit == null)
+            throw new IllegalArgumentException("Target unit cannot be null");
+
+        return l1.add(l2, targetUnit);
+    }
 
     public static void main(String[] args) {
 
@@ -80,6 +92,10 @@ public class QuantityMeasurementApp {
         Length l2 = new Length(12, LengthUnit.INCHES);
 
         System.out.println(l1.add(l2));
+        
+        System.out.println(add(l1, l2, LengthUnit.FEET));
+        System.out.println(add(l1, l2, LengthUnit.INCHES));
+        System.out.println(add(l1, l2, LengthUnit.YARDS));
         
     }
 }
