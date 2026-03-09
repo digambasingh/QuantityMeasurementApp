@@ -49,6 +49,14 @@ public class QuantityMeasurementApp {
 
         return converted.getValue();
     }
+ // UC6 Addition API
+    public static Length add(Length l1, Length l2) {
+
+        if (l1 == null || l2 == null)
+            throw new IllegalArgumentException("Length cannot be null");
+
+        return l1.add(l2);
+    }
 
     public static void main(String[] args) {
 
@@ -67,5 +75,11 @@ public class QuantityMeasurementApp {
                 convert(1,
                         LengthUnit.YARDS,
                         LengthUnit.INCHES));
+        
+        Length l1 = new Length(1, LengthUnit.FEET);
+        Length l2 = new Length(12, LengthUnit.INCHES);
+
+        System.out.println(l1.add(l2));
+        
     }
 }

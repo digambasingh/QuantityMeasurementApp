@@ -140,5 +140,95 @@ class QuantityMeasurementAppTest {
 
         assertEquals(1.0, result, EPSILON);
     }
-}
+    
+    
+ // ---------- UC6 ADDITION TESTS ----------
 
+    @Test
+    void testAddition_FeetAndFeet() {
+
+        Length l1 = new Length(1.0, LengthUnit.FEET);
+        Length l2 = new Length(2.0, LengthUnit.FEET);
+
+        Length result = l1.add(l2);
+
+        assertEquals(new Length(3.0, LengthUnit.FEET), result);
+    }
+
+    @Test
+    void testAddition_FeetAndInches() {
+
+        Length l1 = new Length(1.0, LengthUnit.FEET);
+        Length l2 = new Length(12.0, LengthUnit.INCHES);
+
+        Length result = l1.add(l2);
+
+        assertEquals(new Length(2.0, LengthUnit.FEET), result);
+    }
+
+    @Test
+    void testAddition_InchesAndFeet() {
+
+        Length l1 = new Length(12.0, LengthUnit.INCHES);
+        Length l2 = new Length(1.0, LengthUnit.FEET);
+
+        Length result = l1.add(l2);
+
+        assertEquals(new Length(24.0, LengthUnit.INCHES), result);
+    }
+
+    @Test
+    void testAddition_YardsAndFeet() {
+
+        Length l1 = new Length(1.0, LengthUnit.YARDS);
+        Length l2 = new Length(3.0, LengthUnit.FEET);
+
+        Length result = l1.add(l2);
+
+        assertEquals(new Length(2.0, LengthUnit.YARDS), result);
+    }
+
+    @Test
+    void testAddition_InchesAndYards() {
+
+        Length l1 = new Length(36.0, LengthUnit.INCHES);
+        Length l2 = new Length(1.0, LengthUnit.YARDS);
+
+        Length result = l1.add(l2);
+
+        assertEquals(new Length(72.0, LengthUnit.INCHES), result);
+    }
+
+    @Test
+    void testAddition_CentimetersAndInches() {
+
+        Length l1 = new Length(2.54, LengthUnit.CENTIMETERS);
+        Length l2 = new Length(1.0, LengthUnit.INCHES);
+
+        Length result = l1.add(l2);
+
+        assertEquals(5.08, result.getValue(), EPSILON);
+    }
+
+    @Test
+    void testAddition_WithZero() {
+
+        Length l1 = new Length(5.0, LengthUnit.FEET);
+        Length l2 = new Length(0.0, LengthUnit.INCHES);
+
+        Length result = l1.add(l2);
+
+        assertEquals(new Length(5.0, LengthUnit.FEET), result);
+    }
+
+    @Test
+    void testAddition_WithNegativeValue() {
+
+        Length l1 = new Length(5.0, LengthUnit.FEET);
+        Length l2 = new Length(-2.0, LengthUnit.FEET);
+
+        Length result = l1.add(l2);
+
+        assertEquals(new Length(3.0, LengthUnit.FEET), result);
+    }
+}

@@ -55,9 +55,28 @@ public class Length {
 
         return new Length(converted, targetUnit);
     }
+    
+ // UC6: Addition of two Length objects
+    public Length add(Length other) {
+
+        if (other == null)
+            throw new IllegalArgumentException("Length cannot be null");
+
+        // convert both values to base unit (inches)
+        double base1 = this.toBaseUnit();
+        double base2 = other.toBaseUnit();
+
+        // add them
+        double sum = base1 + base2;
+
+        // convert result back to the unit of the first operand
+        double resultValue = sum / this.unit.getConversionFactor();
+
+        return new Length(resultValue, this.unit);
+    }
 
     @Override
     public String toString() {
-        return value + " " + unit;
+        return "Quantity(" + value + ", " + unit + ")";
     }
 }
