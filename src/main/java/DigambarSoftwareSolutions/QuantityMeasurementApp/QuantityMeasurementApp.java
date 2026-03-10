@@ -41,5 +41,18 @@ public class QuantityMeasurementApp {
                 weight1.add(weight2, WeightUnit.KILOGRAM);
 
         System.out.println("Total Weight: " + totalWeight);
+        
+        Quantity<VolumeUnit> volume1 = new Quantity<>(1.0, VolumeUnit.LITRE);
+        Quantity<VolumeUnit> volume2 = new Quantity<>(1000.0, VolumeUnit.MILLILITRE);
+        Quantity<VolumeUnit> volume3 = new Quantity<>(1.0, VolumeUnit.GALLON);
+
+        // Equality
+        System.out.println(volume1.equals(volume2)); 
+
+        // Conversion
+        System.out.println(volume1.convertTo(VolumeUnit.MILLILITRE));
+
+        // Addition
+        System.out.println(volume1.add(volume2));
     }
 }
