@@ -1,6 +1,4 @@
-.git/
-.mvn/
-.settings/
-target/
-.classpath
-.projectcheckout
+*
+!src/
+!src/**
+!pom.xml
