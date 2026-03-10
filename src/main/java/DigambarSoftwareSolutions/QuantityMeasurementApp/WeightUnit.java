@@ -1,28 +1,36 @@
 package DigambarSoftwareSolutions.QuantityMeasurementApp;
 
-public enum WeightUnit {
+public enum WeightUnit implements IMeasurable {
 
-    KILOGRAM(1.0),
-    GRAM(0.001),
-    POUND(0.453592);
+    MILLIGRAM(0.001),
+    GRAM(1.0),
+    KILOGRAM(1000.0),
+    POUND(453.592),
+    TONNE(1_000_000.0);
 
-    private final double toKilogramFactor;
+    private final double conversionFactor;
 
-    WeightUnit(double toKilogramFactor) {
-        this.toKilogramFactor = toKilogramFactor;
+    WeightUnit(double conversionFactor) {
+        this.conversionFactor = conversionFactor;
     }
 
+    @Override
     public double getConversionFactor() {
-        return toKilogramFactor;
+        return conversionFactor;
     }
 
-    // Convert THIS unit to base unit (kilogram)
+    @Override
     public double convertToBaseUnit(double value) {
-        return value * toKilogramFactor;
+        return value * conversionFactor;
     }
 
-    // Convert from base unit (kilogram) to THIS unit
+    @Override
     public double convertFromBaseUnit(double baseValue) {
-        return baseValue / toKilogramFactor;
+        return baseValue / conversionFactor;
+    }
+
+    @Override
+    public String getUnitName() {
+        return name();
     }
 }
