@@ -57,6 +57,50 @@ public class Quantity<U extends IMeasurable> {
         return new Quantity<>(result, targetUnit);
     }
 
+    // Subtraction method (with implicit target Unit)
+    public Quantity<U> subtract(Quantity<U> other) {
+        return subtract(other, this.unit);
+    }
+    
+    //  Subtraction method (Explicit target unit)
+    public Quantity<U> subtract(Quantity<U> other, U targetUnit) {
+
+        if (other == null)
+            throw new IllegalArgumentException("Other quantity cannot be null");
+
+        if (this.unit.getClass() != other.unit.getClass())
+            throw new IllegalArgumentException("Different measurement categories");
+
+        double baseValue1 = this.unit.convertToBaseUnit(this.value);
+        double baseValue2 = other.unit.convertToBaseUnit(other.value);
+
+        double baseResult = baseValue1 - baseValue2;
+
+        double result = targetUnit.convertFromBaseUnit(baseResult);
+
+        result = Math.round(result * 100.0) / 100.0;
+
+        return new Quantity<>(result, targetUnit);
+    }
+    
+    // Division method
+    public double divide(Quantity<U> other) {
+
+        if (other == null)
+            throw new IllegalArgumentException("Other quantity cannot be null");
+
+        if (this.unit.getClass() != other.unit.getClass())
+            throw new IllegalArgumentException("Different measurement categories");
+
+        if (other.value == 0)
+            throw new ArithmeticException("Division by zero");
+
+        double baseValue1 = this.unit.convertToBaseUnit(this.value);
+        double baseValue2 = other.unit.convertToBaseUnit(other.value);
+
+        return baseValue1 / baseValue2;
+    }
+    
     @Override
     public boolean equals(Object obj) {
 
@@ -82,6 +126,6 @@ public class Quantity<U extends IMeasurable> {
 
     @Override
     public String toString() {
-        return value + " " + unit.getUnitName();
+        return "Quantity( " + value + " " + unit.getUnitName() + " )";
     }
 }

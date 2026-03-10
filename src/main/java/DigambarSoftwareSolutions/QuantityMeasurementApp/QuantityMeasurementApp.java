@@ -54,5 +54,12 @@ public class QuantityMeasurementApp {
 
         // Addition
         System.out.println(volume1.add(volume2));
+        
+        Quantity<LengthUnit> length11 = new Quantity<>(10.0, LengthUnit.FEET);
+        Quantity<LengthUnit> length21 = new Quantity<>(6.0, LengthUnit.INCHES);
+
+        System.out.println(length11.subtract(length21)); 
+        
+        
     }
 }
