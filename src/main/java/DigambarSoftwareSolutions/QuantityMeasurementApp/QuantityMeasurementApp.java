@@ -4,62 +4,27 @@ public class QuantityMeasurementApp {
 
     public static void main(String[] args) {
 
-        // Length Example
-        Quantity<LengthUnit> length1 =
-                new Quantity<>(1.0, LengthUnit.FEET);
+    	 Quantity<TemperatureUnit> temp1 =
+                 new Quantity<>(0, TemperatureUnit.CELSIUS);
 
-        Quantity<LengthUnit> length2 =
-                new Quantity<>(12.0, LengthUnit.INCHES);
+         Quantity<TemperatureUnit> temp2 =
+                 new Quantity<>(32, TemperatureUnit.FAHRENHEIT);
 
-        System.out.println("Are lengths equal? " +
-                length1.equals(length2));
+         System.out.println("0°C equals 32°F: " + temp1.equals(temp2));
 
-        Quantity<LengthUnit> convertedLength =
-                length1.convertTo(LengthUnit.INCHES);
+         Quantity<TemperatureUnit> boiling =
+                 new Quantity<>(100, TemperatureUnit.CELSIUS);
 
-        System.out.println("1 foot in inches: " + convertedLength);
+         Quantity<TemperatureUnit> converted =
+                 boiling.convertTo(TemperatureUnit.FAHRENHEIT);
 
+         System.out.println("100°C = " + converted.getValue() + "°F");
 
-        // Addition Example
-        Quantity<LengthUnit> totalLength =
-                length1.add(length2, LengthUnit.FEET);
-
-        System.out.println("Total Length: " + totalLength);
-
-
-        // Weight Example
-        Quantity<WeightUnit> weight1 =
-                new Quantity<>(1.0, WeightUnit.KILOGRAM);
-
-        Quantity<WeightUnit> weight2 =
-                new Quantity<>(1000.0, WeightUnit.GRAM);
-
-        System.out.println("Are weights equal? " +
-                weight1.equals(weight2));
-
-        Quantity<WeightUnit> totalWeight =
-                weight1.add(weight2, WeightUnit.KILOGRAM);
-
-        System.out.println("Total Weight: " + totalWeight);
-        
-        Quantity<VolumeUnit> volume1 = new Quantity<>(1.0, VolumeUnit.LITRE);
-        Quantity<VolumeUnit> volume2 = new Quantity<>(1000.0, VolumeUnit.MILLILITRE);
-        Quantity<VolumeUnit> volume3 = new Quantity<>(1.0, VolumeUnit.GALLON);
-
-        // Equality
-        System.out.println(volume1.equals(volume2)); 
-
-        // Conversion
-        System.out.println(volume1.convertTo(VolumeUnit.MILLILITRE));
-
-        // Addition
-        System.out.println(volume1.add(volume2));
-        
-        Quantity<LengthUnit> length11 = new Quantity<>(10.0, LengthUnit.FEET);
-        Quantity<LengthUnit> length21 = new Quantity<>(6.0, LengthUnit.INCHES);
-
-        System.out.println(length11.subtract(length21)); 
-        
+         try {
+             boiling.add(new Quantity<>(50, TemperatureUnit.CELSIUS));
+         } catch (UnsupportedOperationException e) {
+             System.out.println(e.getMessage());
+         }
         
     }
 }
