@@ -16,12 +16,12 @@ public class WeightStrategy implements ConversionStrategy {
 
     @Override
     public double toBase(double value, String unit) {
-        return value * factors.get(unit);
+        return value * factors.get(unit.toUpperCase());
     }
 
     @Override
     public double fromBase(double baseValue, String unit) {
-        return baseValue / factors.get(unit);
+        return baseValue / factors.get(unit.toUpperCase());
     }
 
     @Override

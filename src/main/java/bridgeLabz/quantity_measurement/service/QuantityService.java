@@ -2,6 +2,9 @@ package bridgeLabz.quantity_measurement.service;
 
 
 import bridgeLabz.quantity_measurement.dto.QuantityDTO;
+import bridgeLabz.quantity_measurement.entity.QuantityMeasurementEntity;
+
+import java.util.List;
 
 public interface QuantityService {
 
@@ -10,4 +13,6 @@ public interface QuantityService {
     boolean compare(QuantityDTO q1, QuantityDTO q2);
 
     QuantityDTO convert(QuantityDTO q, String targetUnit);
+
+    List<QuantityMeasurementEntity> getAll();
 }

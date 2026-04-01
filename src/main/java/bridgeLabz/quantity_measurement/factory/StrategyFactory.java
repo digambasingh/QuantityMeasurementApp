@@ -16,7 +16,7 @@ public class StrategyFactory {
 
     public ConversionStrategy getStrategy(String type) {
 
-        ConversionStrategy strategy = strategyMap.get(type);
+        ConversionStrategy strategy = strategyMap.get(type.trim());
 
         if (strategy == null) {
             throw new RuntimeException("Invalid measurement type: " + type);

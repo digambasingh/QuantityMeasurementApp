@@ -9,18 +9,30 @@ public class TemperatureStrategy implements ConversionStrategy {
 
     @Override
     public double toBase(double value, String unit) {
-        if (unit.equals("FAHRENHEIT")) {
+
+        String u = unit.trim().toUpperCase();
+
+        if (u.equals("FAHRENHEIT")) {
             return (value - 32) * 5 / 9;
+        } else if (u.equals("CELSIUS")) {
+            return value;
         }
-        return value;
+
+        throw new RuntimeException("Invalid temperature unit: " + unit);
     }
 
     @Override
     public double fromBase(double baseValue, String unit) {
-        if (unit.equals("FAHRENHEIT")) {
+
+        String u = unit.trim().toUpperCase();
+
+        if (u.equals("FAHRENHEIT")) {
             return (baseValue * 9 / 5) + 32;
+        } else if (u.equals("CELSIUS")) {
+            return baseValue;
         }
-        return baseValue;
+
+        throw new RuntimeException("Invalid temperature unit: " + unit);
     }
 
     @Override
