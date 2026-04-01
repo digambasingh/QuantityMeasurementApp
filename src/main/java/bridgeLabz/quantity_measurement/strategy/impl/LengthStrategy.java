@@ -37,6 +37,37 @@ public class LengthStrategy implements ConversionStrategy {
     }
 
     @Override
+    public QuantityDTO subtract(QuantityDTO q1, QuantityDTO q2) {
+
+        double result = toBase(q1.getValue(), q1.getUnitName())
+                - toBase(q2.getValue(), q2.getUnitName());
+
+        return new QuantityDTO(fromBase(result, q1.getUnitName()),
+                q1.getUnitName(), "LengthUnit");
+    }
+
+    @Override
+    public QuantityDTO multiply(QuantityDTO q1, QuantityDTO q2) {
+
+        double result = toBase(q1.getValue(), q1.getUnitName())
+                * toBase(q2.getValue(), q2.getUnitName());
+
+        return new QuantityDTO(result, "BASE", "LengthUnit");
+    }
+
+    @Override
+    public QuantityDTO divide(QuantityDTO q1, QuantityDTO q2) {
+
+        double divisor = toBase(q2.getValue(), q2.getUnitName());
+
+        if (divisor == 0) throw new RuntimeException("Division by zero");
+
+        double result = toBase(q1.getValue(), q1.getUnitName()) / divisor;
+
+        return new QuantityDTO(result, "BASE", "LengthUnit");
+    }
+
+    @Override
     public boolean compare(QuantityDTO q1, QuantityDTO q2) {
 
         double base1 = toBase(q1.getValue(), q1.getUnitName());

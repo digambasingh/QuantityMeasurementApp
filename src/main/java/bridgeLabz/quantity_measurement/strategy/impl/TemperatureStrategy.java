@@ -41,6 +41,24 @@ public class TemperatureStrategy implements ConversionStrategy {
     }
 
     @Override
+    public QuantityDTO subtract(QuantityDTO q1, QuantityDTO q2) {
+
+        throw new RuntimeException("Substraction not supported for temperature");
+    }
+
+    @Override
+    public QuantityDTO multiply(QuantityDTO q1, QuantityDTO q2) {
+
+        throw new RuntimeException("Multiplication not supported for temperature");
+    }
+
+    @Override
+    public QuantityDTO divide(QuantityDTO q1, QuantityDTO q2) {
+
+        throw new RuntimeException("Division not supported for temperature");
+    }
+
+    @Override
     public boolean compare(QuantityDTO q1, QuantityDTO q2) {
 
         double c1 = toBase(q1.getValue(), q1.getUnitName());

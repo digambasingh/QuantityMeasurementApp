@@ -26,6 +26,24 @@ public class QuantityController {
         return new RestResponse<>(true, "Addition successful", result);
     }
 
+    @PostMapping("/subtract")
+    public RestResponse<QuantityDTO> subtract(@RequestBody AddRequest request) {
+        return new RestResponse<>(true, "Subtraction success",
+                service.subtract(request.getFirstQuantity(), request.getSecondQuantity()));
+    }
+
+    @PostMapping("/multiply")
+    public RestResponse<QuantityDTO> multiply(@RequestBody AddRequest request) {
+        return new RestResponse<>(true, "Multiplication success",
+                service.multiply(request.getFirstQuantity(), request.getSecondQuantity()));
+    }
+
+    @PostMapping("/divide")
+    public RestResponse<QuantityDTO> divide(@RequestBody AddRequest request) {
+        return new RestResponse<>(true, "Division success",
+                service.divide(request.getFirstQuantity(), request.getSecondQuantity()));
+    }
+
     @PostMapping("/compare")
     public RestResponse<Boolean> compare(@RequestBody AddRequest request) {
         boolean result = service.compare(request.getFirstQuantity(), request.getSecondQuantity());

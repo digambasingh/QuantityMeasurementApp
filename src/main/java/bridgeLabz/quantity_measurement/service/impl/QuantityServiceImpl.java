@@ -66,6 +66,144 @@ public class QuantityServiceImpl implements QuantityService {
     }
 
     @Override
+    public QuantityDTO subtract(QuantityDTO q1, QuantityDTO q2) {
+
+        if (q1 == null || q2 == null) {
+            throw new RuntimeException("Input cannot be null");
+        }
+
+        if (!q1.getMeasurementType().equals(q2.getMeasurementType())) {
+            throw new RuntimeException("Measurement types must match");
+        }
+
+        QuantityMeasurementEntity entity = new QuantityMeasurementEntity();
+
+        entity.setThisValue(q1.getValue());
+        entity.setThisUnit(q1.getUnitName());
+        entity.setThisMeasurementType(q1.getMeasurementType());
+        entity.setThatValue(q2.getValue());
+        entity.setThatUnit(q2.getUnitName());
+        entity.setThatMeasurementType(q2.getMeasurementType());
+        entity.setOperation("SUBTRACT");
+
+        try {
+            ConversionStrategy strategy = factory.getStrategy(q1.getMeasurementType());
+
+            QuantityDTO result = strategy.subtract(q1, q2);
+
+            entity.setResultValue(result.getValue());
+            entity.setResultUnit(result.getUnitName());
+            entity.setResultMeasurementType(result.getMeasurementType());
+
+            Long id = repo.saveAndReturnId(entity);
+            historyRepo.saveOrUpdate(id);
+
+            return result;
+
+        } catch (Exception e) {
+            entity.setError(true);
+            entity.setErrorMessage(e.getMessage());
+
+            Long id = repo.saveAndReturnId(entity);
+            historyRepo.saveOrUpdate(id);
+
+            throw e;
+        }
+    }
+
+    @Override
+    public QuantityDTO multiply(QuantityDTO q1, QuantityDTO q2) {
+
+        if (q1 == null || q2 == null) {
+            throw new RuntimeException("Input cannot be null");
+        }
+
+        if (!q1.getMeasurementType().equals(q2.getMeasurementType())) {
+            throw new RuntimeException("Measurement types must match");
+        }
+
+        QuantityMeasurementEntity entity = new QuantityMeasurementEntity();
+
+        entity.setThisValue(q1.getValue());
+        entity.setThisUnit(q1.getUnitName());
+        entity.setThisMeasurementType(q1.getMeasurementType());
+        entity.setThatValue(q2.getValue());
+        entity.setThatUnit(q2.getUnitName());
+        entity.setThatMeasurementType(q2.getMeasurementType());
+        entity.setOperation("MULTIPLY");
+
+        try {
+            ConversionStrategy strategy = factory.getStrategy(q1.getMeasurementType());
+
+            QuantityDTO result = strategy.multiply(q1, q2);
+
+            entity.setResultValue(result.getValue());
+            entity.setResultUnit(result.getUnitName());
+            entity.setResultMeasurementType(result.getMeasurementType());
+
+            Long id = repo.saveAndReturnId(entity);
+            historyRepo.saveOrUpdate(id);
+
+            return result;
+
+        } catch (Exception e) {
+            entity.setError(true);
+            entity.setErrorMessage(e.getMessage());
+
+            Long id = repo.saveAndReturnId(entity);
+            historyRepo.saveOrUpdate(id);
+
+            throw e;
+        }
+    }
+
+    @Override
+    public QuantityDTO divide(QuantityDTO q1, QuantityDTO q2) {
+
+        if (q1 == null || q2 == null) {
+            throw new RuntimeException("Input cannot be null");
+        }
+
+        if (!q1.getMeasurementType().equals(q2.getMeasurementType())) {
+            throw new RuntimeException("Measurement types must match");
+        }
+
+        QuantityMeasurementEntity entity = new QuantityMeasurementEntity();
+
+        entity.setThisValue(q1.getValue());
+        entity.setThisUnit(q1.getUnitName());
+        entity.setThisMeasurementType(q1.getMeasurementType());
+        entity.setThatValue(q2.getValue());
+        entity.setThatUnit(q2.getUnitName());
+        entity.setThatMeasurementType(q2.getMeasurementType());
+        entity.setOperation("DIVIDE");
+
+        try {
+            ConversionStrategy strategy = factory.getStrategy(q1.getMeasurementType());
+
+            QuantityDTO result = strategy.divide(q1, q2);
+
+            entity.setResultValue(result.getValue());
+            entity.setResultUnit(result.getUnitName());
+            entity.setResultMeasurementType(result.getMeasurementType());
+
+            Long id = repo.saveAndReturnId(entity);
+            historyRepo.saveOrUpdate(id);
+
+            return result;
+
+        } catch (Exception e) {
+            entity.setError(true);
+            entity.setErrorMessage(e.getMessage());
+
+            Long id = repo.saveAndReturnId(entity);
+            historyRepo.saveOrUpdate(id);
+
+            throw e;
+        }
+    }
+
+    @Override
     public boolean compare(QuantityDTO q1, QuantityDTO q2) {
 
         QuantityMeasurementEntity entity = new QuantityMeasurementEntity();
