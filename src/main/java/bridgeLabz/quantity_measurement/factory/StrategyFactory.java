@@ -1,5 +1,6 @@
 package bridgeLabz.quantity_measurement.factory;
 
+import bridgeLabz.quantity_measurement.exception.InvalidUnitException;
 import bridgeLabz.quantity_measurement.strategy.ConversionStrategy;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +16,15 @@ public class StrategyFactory {
     }
 
     public ConversionStrategy getStrategy(String type) {
+        if (type == null || type.isBlank()) {
+            throw new InvalidUnitException("Measurement type cannot be null or empty");
+        }
 
         ConversionStrategy strategy = strategyMap.get(type.trim());
 
         if (strategy == null) {
-            throw new RuntimeException("Invalid measurement type: " + type);
+            throw new InvalidUnitException("Invalid measurement type: " + type
+                    + ". Supported types: " + strategyMap.keySet());
         }
 
         return strategy;

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d441a302-4332-41f2-83da-07795def42c2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/QuantityApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/controller/QuantityController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/dto/QuantityDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/entity/QuantityMeasurementEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/entity/QuantityMeasurementHistory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/exception/CategoryMismatchException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/exception/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/exception/InvalidUnitException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/exception/QuantityMeasurementException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/exception/UnsupportedOperationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/factory/StrategyFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/repository/QuantityHistoryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/repository/QuantityJdbcRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/request/AddRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/response/RestResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/service/QuantityService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/service/impl/QuantityServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/strategy/ConversionStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/strategy/impl/LengthStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/strategy/impl/TemperatureStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/strategy/impl/VolumeStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bridgeLabz/quantity_measurement/strategy/impl/WeightStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/bridgeLabz/quantity_measurement/controller/QuantityControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/bridgeLabz/quantity_measurement/repository/QuantityJdbcRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/bridgeLabz/quantity_measurement/service/QuantityServiceImplTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3CEl4sZPesE8SYtjWpNT4XO19bG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.QuantityApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/UC18-springframework-with-securityIntegration-and-googleAuth-JWtToken&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/QuantityMeasurementApp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.qodana&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="QuantityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="quantity-measurement-app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="bridgeLabz.quantity_measurement.QuantityApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bridgeLabz.quantity_measurement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.QuantityApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d441a302-4332-41f2-83da-07795def42c2" name="Changes" comment="" />
+      <created>1775958433788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775958433788</updated>
+      <workItem from="1775958434898" duration="141000" />
+      <workItem from="1775958696222" duration="1891000" />
+      <workItem from="1776000547408" duration="87000" />
+      <workItem from="1776000645076" duration="82000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
